@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Your PDF</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="list-group list-group-flush">
+                <a href="{{ url_for('index') }}" class="list-group-item list-group-item-action bg-light">Home</a>
+                <form action="{{ url_for('index') }}" method="post" enctype="multipart/form-data" class="list-group-item list-group-item-action bg-light">
+                    <input type="file" name="pdf_files" multiple accept=".pdf" class="form-control-file mb-2">
+                    <center><button type="submit" class="btn btn-outline-success">Submit & Process</button></center>
+                </form>
+                <div class="list-group list-group-flush mt-3">
+                    <h6 class="list-group-item bg-light">Uploaded Files:</h6>
+                    {% if filenames %}
+                        {% for filename in filenames %}
+                            <span class="list-group-item bg-light truncated-filename">{{ filename }}</span>
+                        {% endfor %}
+                    {% else %}
+                        <span class="list-group-item bg-light">No files uploaded yet.</span>
+                    {% endif %}
+                </div>
+                <a href="{{ url_for('history') }}" class="list-group-item list-group-item-action bg-light">View Chat History</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1 class="mt-4">Chat with Your PDF</h1>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="alert alert-success" role="alert">
+                            {% for category, message in messages %}
+                                <p class="mb-0">{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+
+                <form action="{{ url_for('ask') }}" method="post" class="mb-3">
+                    <div class="form-group">
+                        <label for="question">Ask anything:</label>
+                        <input type="text" name="question" id="question" class="form-control" placeholder="Ask a question">
+                    </div>
+                    <button type="submit" class="btn btn-dark">Find Out</button>
+                </form>
+
+                {% if question and answer %}
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Question:</strong></h5>
+                            <p class="card-text">{{ question }}</p>
+                            <h5 class="card-title"><strong>Answer:</strong></h5>
+                            <p class="card-text">{{ answer }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">All rights Reserved @2024</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+what is the pdf analyzing application,The provided context does not mention anything about a PDF analyzing application. So I cannot answer this question from the provided context.
+what is the pdf analyzing application,"The PDF analyzing application is a tool that allows users to upload multiple PDFs and get answers to user-given quotations only from the user-uploaded PDFs. Unlike other LLM and AI models, this project application never answers with random data and only uses the uploaded PDF as the data source. This application can be launched on multiple platforms including Web, Android, iOS, and Desktop. It is powered by the Langchain platform and is capable of answering with relevant page numbers and PDF names. It can also summarize topics. The application can understand user-given quotations by using its integrated LLM (Large Language Model). When a user asks something that is not in the PDF, it will reply ""user answer is not in your context""."
+what is the pdf analyzing application,"The PDF analyzing application is a tool that allows users to upload multiple PDFs and get answers to user-given quotations only from the user-uploaded PDFs. Unlike other LLM and AI models, this project application never answers with random data and only uses the uploaded PDF as the data source.
+2024-07-13 14:53:43,what are the benifits of project,"1. Provides real-time traffic data to drivers, including current traffic state, incoming and outgoing vehicle counts, and forecasting traffic states for up to 7 days with 5-minute time intervals.
+2. Provides air quality data and forecasting for each location.
+3. Provides a website for monitoring all traffic data, including vehicle license plate numbers, moving speed, date and time, and average speed of each point.
+4. Allows authorities to easily find any vehicle that crosses a checkpoint by using only the license plate or time it crosses.
+5. Allows authorities to easily list illegal activities without wasting money.
+6. Provides static data about locations, such as average speed of each point and forecasting demands for roads.
+
+- Offers the ability to launch on multiple platforms, including web, Android, iOS, and desktop.
+- Powered by the Langchain platform for enhanced accuracy.
+- Provides relevant page numbers and PDF names for easy reference.
+- Capable of summarizing topics for quick understanding.
+- Understands user-given quotations using integrated LLM (Large Language Model).
+- Handles irrelevant questions gracefully by responding with ""user answer is not in your context.""
+- Page 1, Analyzing Application using LLM In PDF",PDF Analyzing Application using LLM.pdf
+2024-07-13 15:12:47,what is the pdf analyzing application,"The pdf analyzing application is a tool that allows users to upload multiple PDFs and get answers to user-given quotations only from the user-uploaded PDFs. It is powered by the Langchain platform and uses a Large Language Model (LLM) to understand user-given quotations and answer them with relevant page numbers and PDF names. The application can also summarize topics and ignore unknown things.
+Page 1, Analyzing Application using LLM In this project",PDF Analyzing Application using LLM.pdf
+2024-07-13 15:13:46,what can we do from using it,"We can upload multiple pdfs and get answers to user-given quotations only from user-uploaded pdfs. This application can be launched on multiple platforms including Web, Android, iOS, and Desktop. It is capable of answering with relevant page numbers and pdf names. It can also summarize topics. The application can understand user-given any quotations by using its integrated LLM (Large Language Model). When the user asked something in the pdf, it answers with the given data. But if the question is not relevant to the uploaded pdf, it will reply ""user answer is not in your context"".
+Page 1, Analyzing Application using LLM In this project users can upload multiple pdf and get answers to user given quotations only from user uploaded pdf.",PDF Analyzing Application using LLM.pdf

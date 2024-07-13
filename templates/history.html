@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat History</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <!-- <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="list-group list-group-flush">
+                <a href="{{ url_for('index') }}" class="list-group-item list-group-item-action bg-light">Home</a>
+                <a href="{{ url_for('history') }}" class="list-group-item list-group-item-action bg-light">View Chat History</a>
+            </div>
+        </div> -->
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1 class="mt-4">Chat History</h1>
+                <a href="{{ url_for('index') }}" class="list-group-item list-group-item-action bg-light">Home</a>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="alert alert-success" role="alert">
+                            {% for category, message in messages %}
+                                <p class="mb-0">{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+
+                <div class="chat-container">
+                    {% for entry in chat_history %}
+                        <div class="chat-entry">
+                            <div class="chat-bubble question">
+                                <p><strong>Question:</strong> {{ entry.question }}</p>
+                            </div>
+                            <div class="chat-bubble answer">
+                                <p><strong>Answer:</strong> {{ entry.answer }}</p>
+                                <p>
+                                    <small>
+                                        PDFs: {{ entry.pdfs }} | Date: {{ entry.datetime }} 
+                                        <form action="{{ url_for('history') }}" method="post" class="d-inline">
+                                            <input type="hidden" name="entry_id" value="{{ entry.id }}">
+                                            <button type="submit" class="btn btn-secondary btn-sm">Delete</button>
+                                        </form>
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">All rights Reserved @2024</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
